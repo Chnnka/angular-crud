@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": {
+    "firstName": "John ",
+    "lastName": "Doe",
+    "email": "john",
+    "dob": "2007-02-05T18:30:00.000Z",
+    "gender": "",
+    "education": "Bachelor (3 years)",
+    "company": "SCS software",
+    "experience": 2,
+    "package": 27
+  }
+}
