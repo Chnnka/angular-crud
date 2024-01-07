@@ -17,14 +17,14 @@
     "name": "typicode"
   },
   "employees": {
-    "firstName": "John ",
+    "firstName": "Nimal",
     "lastName": "Doe",
-    "email": "john",
-    "dob": "2007-02-05T18:30:00.000Z",
+    "email": "nimal@gmail.com",
+    "dob": "1992-02-10T18:30:00.000Z",
     "gender": "",
-    "education": "Bachelor (3 years)",
-    "company": "SCS software",
-    "experience": 2,
-    "package": 27
+    "education": "A/L",
+    "company": "Fascino Studios",
+    "experience": 34,
+    "package": 33333
   }
 }
