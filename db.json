@@ -17,14 +17,14 @@
     "name": "typicode"
   },
   "employees": {
-    "firstName": "Nimal",
-    "lastName": "Doe",
-    "email": "nimal@gmail.com",
-    "dob": "1992-02-10T18:30:00.000Z",
+    "firstName": "Liyanage",
+    "lastName": "Gunawardhana",
+    "email": "channakagunawardana@gmail.com",
+    "dob": "2016-05-02T18:30:00.000Z",
     "gender": "",
-    "education": "A/L",
-    "company": "Fascino Studios",
-    "experience": 34,
-    "package": 33333
+    "education": "",
+    "company": "SCS software",
+    "experience": 3,
+    "package": 8888888
   }
 }

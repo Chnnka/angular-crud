@@ -22,6 +22,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, EmpAddEditComponent],
@@ -44,6 +45,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

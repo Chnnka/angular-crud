@@ -5,6 +5,7 @@ import { EmployeeService } from './services/employee.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { CoreService } from './core/core.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
     'company',
     'experience',
     'package',
-    'action'
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -32,8 +33,24 @@ export class AppComponent implements OnInit {
 
   constructor(
     private _dialog: MatDialog,
-    private _empService: EmployeeService
+    private _empService: EmployeeService,
+    private _coreService: CoreService
   ) {}
+
+  ngOnInit(): void {
+    this.getEmployeeList();
+  }
+
+  openAddEditEmpForm() {
+    const dialogRef = this._dialog.open(EmpAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getEmployeeList();
+        }
+      },
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -44,20 +61,35 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.getEmployeeList();
-  }
-
-  openAddEditEmpForm() {
-    this._dialog.open(EmpAddEditComponent);
-  }
-
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+      },
+      error: console.log,
+    });
+  }
+
+  openEditEmpForm(data: any) {
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
+      data,
+    });
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getEmployeeList();
+        }
+      },
+    });
+  }
+
+  deleteEmployee(id: number) {
+    this._empService.deleteEmployee(id).subscribe({
+      next: (res) => {
+        this._coreService.openSnackBar('Employee deleted!', 'done');
+        this.getEmployeeList();
       },
       error: console.log,
     });
